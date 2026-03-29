@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eatsly | Premium Dining Delivered</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- STAGE 1: HERO SCREEN -->
+    <section class="screen active" id="hero-page">
+        <nav class="glass-nav">
+            <div class="logo">Eatsly<span>.</span></div>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#" id="browse-link">Menu</a>
+                <a href="#" id="about-link">Story</a>
+                <button class="nav-login-btn" style="background: white; color: black; border: none; padding: 10px 25px; border-radius: 50px; font-weight: 800; cursor: pointer;">Login</button>
+            </div>
+        </nav>
+
+        <div class="hero-content-wrapper">
+            <div class="hero-left">
+                <div class="badge"><i class="fas fa-bolt"></i> Fastest Delivery in Town</div>
+                <h1>Crave It.<br>Order It. <span>Eat It.</span></h1>
+                <p>Curating the finest local cuisines from top-tier hotels and bringing them straight to your table with elegance and speed.</p>
+                <div class="hero-actions">
+                    <button class="cta-btn" id="main-order-btn">Start Ordering <i class="fas fa-chevron-right"></i></button>
+                    <button class="sec-btn" id="sec-browse-btn">Explore Menu</button>
+                </div>
+                <div class="hero-metrics" style="margin-top: 60px; display: flex; gap: 50px;">
+                    <div class="metric"><h3>100k+</h3><span>Monthly Orders</span></div>
+                    <div class="metric"><h3>4.9 <i class="fas fa-star" style="color: #ffca28; font-size: 14px;"></i></h3><span>Trust Score</span></div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="assets/biriyani.jpg" alt="Exquisite Cuisine">
+                <div class="floating-card" style="left: -40px; bottom: 40px; border-radius: 30px;">
+                    <i class="fas fa-pizza-slice"></i>
+                    <div><strong>Hot & Fresh</strong><span>Under 30 Min</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAGE 2: LOGIN SCREEN -->
+    <section class="screen" id="login-page">
+        <div class="login-bg-glow"></div>
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo">Eatsly<span>.</span></div>
+                <h2>Welcome Back</h2>
+                <p>Your premium dining experience awaits.</p>
+            </div>
+            <form id="full-login-form">
+                <div class="field">
+                    <label>E-mail Address</label>
+                    <div class="input-box">
+                        <i class="fas fa-at"></i>
+                        <input type="email" id="login-email" placeholder="deepak@gmail.com" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Pin / Password</label>
+                    <div class="input-box">
+                        <i class="fas fa-shield-alt"></i>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                </div>
+                <button type="submit" class="sign-in-btn">Enter Dashboard</button>
+            </form>
+            <div class="separator"><span>OR ACCESS VIA</span></div>
+            <div class="social-grid">
+                <button class="social-item"><i class="fab fa-google"></i> Google</button>
+                <button class="social-item"><i class="fab fa-apple"></i> Apple</button>
+            </div>
+            <div class="auth-bottom">New here? <a href="#">Create Member Account</a></div>
+            <button class="go-back-link" id="back-to-hero"><i class="fas fa-arrow-left"></i> Return Home</button>
+        </div>
+    </section>
+
+    <!-- STAGE 3: DASHBOARD / SHOP -->
+    <section class="screen" id="shop-page">
+        <header class="shop-top">
+            <div class="welcome-user">
+                <div class="logo" style="font-size: 24px;">Eatsly<span>.</span></div>
+                <h2 id="user-greeting" style="margin-top: 15px;">Hi, Guest 👋</h2>
+            </div>
+            <div class="shop-nav-right">
+                <div class="search-container">
+                    <i class="fas fa-search" style="color: #444;"></i>
+                    <input type="text" id="food-search" placeholder="Search by dish or restaurant...">
+                </div>
+                <button class="cart-icon-btn" id="cart-toggle">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="badge-count">0</span>
+                </button>
+                <button class="logout-icon-btn" id="logout-btn" style="background: none; border: 1px solid #222; color: white; width: 60px; height: 60px; border-radius: 22px; cursor: pointer; font-size: 18px;"><i class="fas fa-power-off"></i></button>
+            </div>
+        </header>
+
+        <nav class="category-nav" id="category-list">
+            <div class="pill active" data-category="All">All Menu</div>
+            <div class="pill" data-category="Main Course">Main Course</div>
+            <div class="pill" data-category="Starters">Starters</div>
+            <div class="pill" data-category="Drinks">Beverages</div>
+            <div class="pill" data-category="Desserts">Desserts</div>
+            <div class="pill" data-category="Hotel">Top Rated</div>
+        </nav>
+
+        <main class="menu-grid" id="food-grid">
+            <!-- Dynamic Inject -->
+        </main>
+    </section>
+
+    <!-- OVERLAYS & MODALS -->
+    <div class="cart-tray" id="cart-overlay" style="position: fixed; right: -100%; top: 0; height: 100%; width: 450px; background: rgba(5,5,5,0.95); backdrop-filter: blur(20px); z-index: 1000; padding: 50px; transition: 0.5s; box-shadow: -30px 0 100px rgba(0,0,0,1); display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px;">
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 800;">My Cart</h3>
+            <button id="close-cart" style="background: none; border: none; color: #555; font-size: 28px; cursor: pointer;"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cart-item-list" style="flex: 1; overflow-y: auto;"></div>
+        <div style="padding-top: 30px; border-top: 1px solid #222; margin-top: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; font-size: 20px; font-weight: 800;">
+                <span>Subtotal</span>
+                <span id="cart-total" style="color: var(--primary);">₹0</span>
+            </div>
+            <button id="open-checkout" style="width: 100%; background: var(--primary); color: white; border: none; padding: 25px; border-radius: 25px; font-size: 18px; font-weight: 800; cursor: pointer; box-shadow: var(--primary-glow);">Confirm & Checkout</button>
+        </div>
+    </div>
+
+    <!-- Payment & Tracking stay mostly Same (Structure-wise) -->
+    <div class="payment-modal" id="checkout-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 2000; align-items: center; justify-content: center;">
+        <div class="payment-card" style="background: #111; padding: 60px; border-radius: 50px; width: 550px; border: 1px solid #222;">
+            <form id="checkout-form">
+                <h3 style="font-size: 30px; margin-bottom: 30px;">Shipping Details</h3>
+                <div class="field"><label>Receiver Name</label><div class="input-box"><input type="text" id="cust-name" required></div></div>
+                <div class="field"><label>Address</label><div class="input-box"><textarea id="cust-address" placeholder="123 Street, City, ZIP" required></textarea></div></div>
+                <div class="field">
+                    <label>Payment Method</label>
+                    <div class="input-box">
+                        <i class="fas fa-credit-card"></i>
+                        <select id="payment-method">
+                            <option value="cod">Cash on Delivery</option>
+                            <option value="upi">UPI / GPay / Cards</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" style="width: 100%; background: var(--primary); color: white; padding: 22px; border-radius: 20px; border: none; font-weight: 800; font-size: 18px; margin-top: 20px; cursor: pointer;">Place Order ₹<span id="modal-total">0</span></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="tracking-screen" id="order-overlay" style="display: none; position: fixed; inset: 0; background: #000; z-index: 3000; align-items: center; justify-content: center;">
+        <div style="text-align: center;">
+            <div id="success-message">
+                <div style="width: 100px; height: 100px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; font-size: 40px; box-shadow: 0 0 50px var(--primary-glow); animation: pulse 2s infinite;"><i class="fas fa-check"></i></div>
+                <h2 style="font-size: 36px; font-weight: 800;">Order Success!</h2>
+            </div>
+            <button id="back-home" style="background: none; border: 1px solid #222; color: white; padding: 18px 40px; border-radius: 50px; cursor: pointer; margin-top: 40px; font-weight: 700;">Back to Menu</button>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
